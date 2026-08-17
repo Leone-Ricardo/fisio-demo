@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fisioterapeuta - Nome do Profissional</title>
+  <!-- Fonte Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- RESET e VARIÁVEIS --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1A4A5C;    /* Azul petróleo - confiança */
+      --primary-light: #2C6B82;
+      --secondary: #88B7B5;  /* Verde-menta - saúde */
+      --gray-bg: #F4F7F9;
+      --gray-text: #4A5A6A;
+      --white: #FFFFFF;
+      --shadow: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--gray-bg);
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- BOTÕES --- */
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.15s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 10px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* --- SEÇÕES --- */
+    section {
+      padding: 60px 0;
+    }
+    section:nth-child(even) {
+      background: var(--white);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      color: var(--gray-text);
+      font-size: 1.05rem;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--white);
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid var(--secondary);
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+    }
+    .hero .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 28px;
+    }
+    .hero .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero .btn-outline {
+      border-color: var(--white);
+      color: var(--white);
+    }
+    .hero .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    /* --- SOBRE --- */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .sobre-grid img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .sobre-grid h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    /* --- ESPECIALIDADES (CARDS) --- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--white);
+      padding: 24px 16px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+    .card h4 {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--gray-text);
+    }
+
+    /* --- DEPOIMENTOS --- */
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .depoimento {
+      background: var(--gray-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--secondary);
+    }
+    .depoimento p {
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    .depoimento .autor {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* --- FAQ --- */
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-item .pergunta {
+      padding: 16px 20px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-item .pergunta .seta {
+      transition: transform 0.25s ease;
+    }
+    .faq-item .pergunta.aberto .seta {
+      transform: rotate(180deg);
+    }
+    .faq-item .resposta {
+      padding: 0 20px 16px;
+      display: none;
+    }
+    .faq-item .resposta.aberto {
+      display: block;
+    }
+
+    /* --- CONTATO --- */
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .contato-info p {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contato-info a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contato-info a:hover {
+      text-decoration: underline;
+    }
+    .mapa {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius);
+      border: 0;
+    }
+
+    /* --- RODAPÉ --- */
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 24px 0;
+      font-size: 0.9rem;
+    }
+    footer .social a {
+      color: var(--white);
+      margin: 0 10px;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    /* --- RESPONSIVO --- */
+    @media (max-width: 768px) {
+      .sobre-grid {
+        grid-template-columns: 1fr;
+      }
+      .contato-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 40px 0;
+      }
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <div class="container">
+    <!-- Substitua pelo avatar do profissional -->
+    <img class="avatar" src="https://via.placeholder.com/140" alt="Foto do profissional">
+    <h1>Dra. Ana Silva</h1>
+    <p class="subtitle">Fisioterapeuta · CREFITO 123456-F</p>
+    <div class="cta-group">
+      <a href="#contato" class="btn-primary">Agende sua Consulta</a>
+      <a href="https://wa.me/5511999999999" target="_blank" class="btn-outline">Fale pelo WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SOBRE ========== -->
+<section id="sobre">
+  <div class="container">
+    <h2 class="section-title">Sobre Mim</h2>
+    <div class="sobre-grid">
+      <!-- Substitua pela foto do profissional em ambiente de trabalho -->
+      <img src="https://via.placeholder.com/400x300" alt="Dra. Ana em atendimento">
+      <div>
+        <h3>Humanização e ciência caminhando juntas</h3>
+        <p>
+          Sou fisioterapeuta com mais de 8 anos de experiência, especializada em
+          <strong>reabilitação ortopédica e traumatológica</strong>. Acredito que
+          cada paciente é único, por isso meu atendimento é personalizado, com
+          escuta ativa e técnicas baseadas em evidências.
+        </p>
+        <p>
+          Minha missão é devolver movimento, qualidade de vida e autonomia para
+          que você possa fazer o que ama sem dor.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ESPECIALIDADES ========== -->
+<section id="especialidades" style="background: var(--white);">
+  <div class="container">
+    <h2 class="section-title">Especialidades</h2>
+    <p class="section-subtitle">
+      Atendimento focado em suas necessidades, com técnicas modernas e eficazes.
+    </p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="icon">🦴</div>
+        <h4>Ortopedia</h4>
+        <p>Pós-operatório, fraturas, tendinites e artroses</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h4>Neurológica</h4>
+        <p>AVC, Parkinson, esclerose múltipla e reabilitação motora</p>
+      </div>
+      <div class="card">
+        <div class="icon">👴</div>
+        <h4>Geriatria</h4>
+        <p>Prevenção de quedas, fortalecimento e qualidade de vida</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h4>RPG</h4>
+        <p>Reeducação postural global para dores crônicas</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏃</div>
+        <h4>Esportiva</h4>
+        <p>Prevenção de lesões e melhora do desempenho</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧘</div>
+        <h4>Pilates</h4>
+        <p>Reabilitação e fortalecimento com estabilidade</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DEPOIMENTOS ========== -->
+<section id="depoimentos">
+  <div class="container">
+    <h2 class="section-title">O que meus pacientes dizem</h2>
+    <p class="section-subtitle">Histórias reais de quem recuperou sua qualidade de vida.</p>
+    <div class="depoimentos-grid">
+      <div class="depoimento">
+        <p>"Após a cirurgia no joelho, a Dra. Ana foi essencial na minha recuperação. Com dedicação e técnicas excelentes, hoje volto a correr!"</p>
+        <div class="autor">— Carlos M.</div>
+      </div>
+      <div class="depoimento">
+        <p>"As crises de dor nas costas diminuíram drasticamente. O tratamento com RPG mudou minha qualidade de vida. Recomendo a todas as pessoas."</p>
+        <div class="autor">— Fernanda L.</div>
+      </div>
+      <div class="depoimento">
+        <p>"Atendimento humanizado e eficiente. A Ana me ouviu e me tratou com todo cuidado. Minha recuperação foi muito mais rápida do que imaginei."</p>
+        <div class="autor">— João P.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq" style="background: var(--white);">
+  <div class="container">
+    <h2 class="section-title">Perguntas Frequentes</h2>
+    <p class="section-subtitle">Tire suas dúvidas antes de agendar sua consulta.</p>
+
+    <div class="faq-item">
+      <div class="pergunta" onclick="toggleFaq(this)">
+        <span>Como é a primeira consulta?</span>
+        <span class="seta">▼</span>
+      </div>
+      <div class="resposta">
+        Na primeira consulta, fazemos uma avaliação completa do seu quadro, com anamnese detalhada, testes específicos e planejamento do tratamento. Dura cerca de 60 minutos.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="pergunta" onclick="toggleFaq(this)">
+        <span>Preciso de encaminhamento médico?</span>
+        <span class="seta">▼</span>
+      </div>
+      <div class="resposta">
+        Não, você pode agendar diretamente comigo. Porém, se tiver exames ou laudos de outros profissionais, traga para que eu possa analisar.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="pergunta" onclick="toggleFaq(this)">
+        <span>Atende convênios?</span>
+        <span class="seta">▼</span>
+      </div>
+      <div class="resposta">
+        Atualmente atendo apenas particular, com valores acessíveis. Você pode solicitar um orçamento sem compromisso pelo WhatsApp.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="pergunta" onclick="toggleFaq(this)">
+        <span>Qual o tempo médio de tratamento?</span>
+        <span class="seta">▼</span>
+      </div>
+      <div class="resposta">
+        O tempo varia conforme a condição e a resposta individual ao tratamento. Em média, 8 a 12 sessões, mas alguns casos podem ser mais rápidos ou demandar mais tempo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTATO ========== -->
+<section id="contato">
+  <div class="container">
+    <h2 class="section-title">Entre em Contato</h2>
+    <p class="section-subtitle">Agende sua consulta ou tire suas dúvidas. Estou aqui para ajudar.</p>
+    <div class="contato-grid">
+      <div class="contato-info">
+        <p>📍 <strong>Endereço:</strong> Rua das Flores, 123 · Centro · São Paulo/SP</p>
+        <p>📞 <strong>Telefone:</strong> <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+        <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a></p>
+        <p>📧 <strong>E-mail:</strong> <a href="mailto:contato@anafisio.com.br">contato@anafisio.com.br</a></p>
+        <p>🕐 <strong>Atendimento:</strong> Segunda a Sexta, 8h às 19h · Sábado, 8h às 12h</p>
+        <br>
+        <a href="https://wa.me/5511999999999" target="_blank" class="btn-primary">Fale comigo agora</a>
+      </div>
+      <div>
+        <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.084437070058!2d-46.65457708460693!3d-23.56520998468191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1647263876541!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RODAPÉ ========== -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom: 8px;">© 2026 · Dra. Ana Silva · CREFITO 123456-F</p>
+    <div class="social">
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">YouTube</a>
+    </div>
+    <p style="margin-top: 12px; font-size: 0.8rem; opacity: 0.7;">
+      Agendamento exclusivo via WhatsApp.
+    </p>
+  </div>
+</footer>
+
+<!-- ========== SCRIPT FAQ ========== -->
+<script>
+  function toggleFaq(element) {
+    const pergunta = element;
+    const resposta = pergunta.nextElementSibling;
+    const isOpen = resposta.classList.contains('aberto');
+
+    // Fecha todos os outros
+    document.querySelectorAll('.faq-item .resposta').forEach(el => {
+      el.classList.remove('aberto');
+    });
+    document.querySelectorAll('.faq-item .pergunta').forEach(el => {
+      el.classList.remove('aberto');
+    });
+
+    if (!isOpen) {
+      resposta.classList.add('aberto');
+      pergunta.classList.add('aberto');
+    }
+  }
+</script>
+
+</body>
+</html>
