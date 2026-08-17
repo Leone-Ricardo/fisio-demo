@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lorrayne Margot · Fisioterapeuta</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         /* ----- RESET & VARIÁVEIS (A paleta de DaVinci) ----- */
         * {
@@ -334,6 +334,60 @@
             color: var(--branco);
         }
 
+        /* ============================================================
+           BOTÃO FLUTUANTE DO WHATSAPP (exclusivo e charmoso)
+           ============================================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--verde-sabio), var(--verde-escuro));
+            color: var(--branco);
+            padding: 14px 22px;
+            border-radius: 60px;
+            box-shadow: 0 8px 24px rgba(107, 143, 113, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse-whats 2.5s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.04) translateY(-4px);
+            box-shadow: 0 12px 32px rgba(107, 143, 113, 0.5);
+            background: linear-gradient(135deg, var(--verde-escuro), #3D5A44);
+            animation: none;
+        }
+
+        .whatsapp-float-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .whatsapp-float-text {
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Animação suave de chamar atenção */
+        @keyframes pulse-whats {
+            0% {
+                box-shadow: 0 8px 24px rgba(107, 143, 113, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 40px rgba(107, 143, 113, 0.65), 0 0 0 6px rgba(195, 177, 225, 0.15);
+            }
+            100% {
+                box-shadow: 0 8px 24px rgba(107, 143, 113, 0.4);
+            }
+        }
+
         /* ----- RESPONSIVO (Da Vinci também pensava em todos) ----- */
         @media (max-width: 768px) {
             .hero-grid {
@@ -366,150 +420,171 @@
             .chamada-domiciliar h3 {
                 font-size: 1.4rem;
             }
+            .whatsapp-float {
+                padding: 12px 16px;
+                bottom: 16px;
+                right: 16px;
+                gap: 8px;
+            }
+            .whatsapp-float-text {
+                font-size: 0.8rem;
+            }
+            .whatsapp-float-icon {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- ========== HERO ========== -->
-<section class="hero">
-    <div class="container hero-grid">
-        <div class="hero-conteudo">
-            <h1>
-                Lorrayne <span class="destaque-lilas">Margot</span>
-            </h1>
-            <p>
-                Fisioterapeuta com olhar atento e toque cuidadoso. 
-                Especialista em <strong>Terapia Manual, Taping e Reabilitação</strong> 
-                para mulheres no pré e pós-parto.
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-conteudo">
+                <h1>
+                    Lorrayne <span class="destaque-lilas">Margot</span>
+                </h1>
+                <p>
+                    Fisioterapeuta com olhar atento e toque cuidadoso.
+                    Especialista em <strong>Terapia Manual, Taping e Reabilitação</strong>
+                    para mulheres no pré e pós-parto.
+                </p>
+                <div class="selos-hero">
+                    <span class="selo"><span class="emoji">📍</span> Domiciliar</span>
+                    <span class="selo"><span class="emoji">🤱</span> Pré & Pós-parto</span>
+                    <span class="selo"><span class="emoji">💜</span> Toque humanizado</span>
+                </div>
+                <div style="margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap;">
+                    <a href="#contato" class="btn-primario">Agendar atendimento</a>
+                    <a href="https://wa.me/5521999999999?text=Olá,%20Lorrayne!%20Gostaria%20de%20agendar%20um%20atendimento%20ou%20tirar%20uma%20dúvida%20sobre%20a%20fisioterapia.%20Pode%20me%20ajudar?" target="_blank" class="btn-secundario">WhatsApp</a>
+                </div>
+            </div>
+            <div class="hero-foto">
+                <div class="moldura-foto">
+                    <!-- ADICIONE A FOTO DA LORRAYNE AQUI -->
+                    <img src=""https://scontent.cdninstagram.com/v/t51.2885-19/277820475_727086758673858_6571068879150878207_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=104&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=CBT6Nvq-bK4Q7kNvwHUTGx9&_nc_oc=AdrnbdsdOveMzzNfN_mlPUuT61iBeBmnUtD230227YBZ9GzgqiHdJgAZOC0yHnXZEx4&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b6a8&oh=00_AQHGypuaEp-yPTSmzXL5blL7Jce-3wy1FGyAmexK8fgCbA&oe=6A892699" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ESPECIALIDADES ========== -->
+    <section id="especialidades">
+        <div class="container">
+            <h2 class="titulo-secao">Minhas <span>Especialidades</span></h2>
+            <p class="subtitulo-secao">
+                Técnicas integradas para cuidar de você com ciência, arte e acolhimento.
             </p>
-            <div class="selos-hero">
-                <span class="selo"><span class="emoji">📍</span> Domiciliar</span>
-                <span class="selo"><span class="emoji">🤱</span> Pré & Pós-parto</span>
-                <span class="selo"><span class="emoji">💜</span> Toque humanizado</span>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="icon">🖐️</span>
+                    <h4>Liberação Miofascial</h4>
+                    <p>Alívio de tensões e dores crônicas com toque profundo e preciso.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🦴</span>
+                    <h4>Traumato Ortopedia</h4>
+                    <p>Reabilitação de lesões, pós-cirúrgico e recuperação funcional.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">💧</span>
+                    <h4>Drenagem Linfática</h4>
+                    <p>Redução de inchaços, estímulo à circulação e bem-estar.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">✨</span>
+                    <h4>Terapia Manual</h4>
+                    <p>Toque terapêutico para restaurar o equilíbrio do corpo.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🎗️</span>
+                    <h4>Taping</h4>
+                    <p>Suporte e estabilidade com a técnica que respeita seus movimentos.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🤱</span>
+                    <h4>Pré & Pós-parto</h4>
+                    <p>Acompanhamento especializado para o corpo da mulher em cada fase.</p>
+                </div>
             </div>
-            <div style="margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap;">
-                <a href="#contato" class="btn-primario">Agendar atendimento</a>
-                <a href="https://wa.me/5511999999999" target="_blank" class="btn-secundario">WhatsApp</a>
-            </div>
-        </div>
-        <div class="hero-foto">
-            <div class="moldura-foto">
-                <!-- ADICIONE A FOTO DA LORRAYNE AQUI -->
-                <img src="https://scontent.cdninstagram.com/v/t51.2885-19/277820475_727086758673858_6571068879150878207_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=104&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=CBT6Nvq-bK4Q7kNvwHUTGx9&_nc_oc=AdrnbdsdOveMzzNfN_mlPUuT61iBeBmnUtD230227YBZ9GzgqiHdJgAZOC0yHnXZEx4&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b6a8&oh=00_AQHGypuaEp-yPTSmzXL5blL7Jce-3wy1FGyAmexK8fgCbA&oe=6A892699" alt="Foto da Fisioterapeuta Lorrayne Margot">
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ========== ESPECIALIDADES ========== -->
-<section id="especialidades">
-    <div class="container">
-        <h2 class="titulo-secao">Minhas <span>Especialidades</span></h2>
-        <p class="subtitulo-secao">
-            Técnicas integradas para cuidar de você com ciência, arte e acolhimento.
-        </p>
-        <div class="cards-grid">
-            <div class="card">
-                <span class="icon">🖐️</span>
-                <h4>Liberação Miofascial</h4>
-                <p>Alívio de tensões e dores crônicas com toque profundo e preciso.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🦴</span>
-                <h4>Traumato Ortopedia</h4>
-                <p>Reabilitação de lesões, pós-cirúrgico e recuperação funcional.</p>
-            </div>
-            <div class="card">
-                <span class="icon">💧</span>
-                <h4>Drenagem Linfática</h4>
-                <p>Redução de inchaços, estímulo à circulação e bem-estar.</p>
-            </div>
-            <div class="card">
-                <span class="icon">✨</span>
-                <h4>Terapia Manual</h4>
-                <p>Toque terapêutico para restaurar o equilíbrio do corpo.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🎗️</span>
-                <h4>Taping</h4>
-                <p>Suporte e estabilidade com a técnica que respeita seus movimentos.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🤱</span>
-                <h4>Pré & Pós-parto</h4>
-                <p>Acompanhamento especializado para o corpo da mulher em cada fase.</p>
+            <div class="chamada-domiciliar">
+                <h3>🏠 Atendimento <span>Domiciliar</span></h3>
+                <p>Você não precisa sair de casa para receber um cuidado de excelência. Vou até você, com toda a estrutura e carinho que o seu momento pede.</p>
+                <a href="#contato" class="btn-primario" style="margin-top: 8px;">Quero saber mais</a>
             </div>
         </div>
+    </section>
 
-        <div class="chamada-domiciliar">
-            <h3>🏠 Atendimento <span>Domiciliar</span></h3>
-            <p>Você não precisa sair de casa para receber um cuidado de excelência. Vou até você, com toda a estrutura e carinho que o seu momento pede.</p>
-            <a href="#contato" class="btn-primario" style="margin-top: 8px;">Quero saber mais</a>
+    <!-- ========== DEPOIMENTOS ========== -->
+    <section id="depoimentos" style="background: var(--branco);">
+        <div class="container">
+            <h2 class="titulo-secao">O que falam do <span>meu cuidado</span></h2>
+            <p class="subtitulo-secao">Cada história me motiva a continuar.</p>
+            <div class="depoimentos-grid">
+                <div class="depoimento">
+                    <p>"A Lorrayne tem um toque que acalma e ao mesmo tempo resolve. Minha recuperação no pós-parto foi leve e segura com ela."</p>
+                    <div class="autor">— Mariana S.</div>
+                </div>
+                <div class="depoimento">
+                    <p>"Depois das sessões de liberação miofascial, minha qualidade de vida melhorou muito. Recomendo de olhos fechados."</p>
+                    <div class="autor">— Carla M.</div>
+                </div>
+                <div class="depoimento">
+                    <p>"Atendimento domiciliar foi um diferencial incrível. Ela é profissional, atenta e muito humana."</p>
+                    <div class="autor">— Juliana R.</div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ========== DEPOIMENTOS ========== -->
-<section id="depoimentos" style="background: var(--branco);">
-    <div class="container">
-        <h2 class="titulo-secao">O que falam do <span>meu cuidado</span></h2>
-        <p class="subtitulo-secao">Cada história me motiva a continuar.</p>
-        <div class="depoimentos-grid">
-            <div class="depoimento">
-                <p>"A Lorrayne tem um toque que acalma e ao mesmo tempo resolve. Minha recuperação no pós-parto foi leve e segura com ela."</p>
-                <div class="autor">— Mariana S.</div>
-            </div>
-            <div class="depoimento">
-                <p>"Depois das sessões de liberação miofascial, minha qualidade de vida melhorou muito. Recomendo de olhos fechados."</p>
-                <div class="autor">— Carla M.</div>
-            </div>
-            <div class="depoimento">
-                <p>"Atendimento domiciliar foi um diferencial incrível. Ela é profissional, atenta e muito humana."</p>
-                <div class="autor">— Juliana R.</div>
+    <!-- ========== CONTATO ========== -->
+    <section id="contato">
+        <div class="container">
+            <h2 class="titulo-secao">Vamos <span>conversar?</span></h2>
+            <p class="subtitulo-secao">Agende seu atendimento ou tire suas dúvidas. Estou aqui para cuidar de você.</p>
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <p>📍 <strong>Atendimento Domiciliar</strong> · Rio de Janeiro/RJ</p>
+                    <p>📞 <strong>Telefone:</strong> <a href="tel:+5521999999999">(21) 99999-9999</a></p>
+                    <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/5521999999999" target="_blank">(21) 99999-9999</a></p>
+                    <p>📧 <strong>E-mail:</strong> <a href="mailto:lorrayne@fisio.com">lorrayne@fisio.com</a></p>
+                    <p>🕐 <strong>Atendimento:</strong> Segunda a Sábado, 8h às 19h</p>
+                    <br />
+                    <a href="https://wa.me/5521999999999?text=Olá,%20Lorrayne!%20Gostaria%20de%20agendar%20um%20atendimento%20ou%20tirar%20uma%20dúvida%20sobre%20a%20fisioterapia.%20Pode%20me%20ajudar?" target="_blank" class="btn-primario">Falar no WhatsApp</a>
+                </div>
+                <div>
+                    <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14692.97487388078!2d-43.220188!3d-22.911140!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e5b7b3e9aad%3A0xa4ba6d1c9e3e2b5!2sRio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1647896543210" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ========== CONTATO ========== -->
-<section id="contato">
-    <div class="container">
-        <h2 class="titulo-secao">Vamos <span>conversar?</span></h2>
-        <p class="subtitulo-secao">Agende seu atendimento ou tire suas dúvidas. Estou aqui para cuidar de você.</p>
-        <div class="contato-grid">
-            <div class="contato-info">
-                <p>📍 <strong>Atendimento Domiciliar</strong> · Rio de Janeiro/RJ</p>
-                <p>📞 <strong>Telefone:</strong> <a href="tel:+5521999999999">(21) 99999-9999</a></p>
-                <p>💬 <strong>WhatsApp:</strong> <a href="https://wa.me/5521999999999" target="_blank">(21) 99999-9999</a></p>
-                <p>📧 <strong>E-mail:</strong> <a href="mailto:lorrayne@fisio.com">lorrayne@fisio.com</a></p>
-                <p>🕐 <strong>Atendimento:</strong> Segunda a Sábado, 8h às 19h</p>
-                <br>
-                <a href="https://wa.me/5521999999999" target="_blank" class="btn-primario">Falar no WhatsApp</a>
+    <!-- ========== RODAPÉ ========== -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 6px; font-family: 'Playfair Display', serif; font-size: 1.1rem;">
+                Lorrayne Margot · Fisioterapeuta
+            </p>
+            <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 12px;">Cuidado que transforma vidas.</p>
+            <div class="social">
+                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">LinkedIn</a>
             </div>
-            <div>
-                <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14692.97487388078!2d-43.220188!3d-22.911140!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e5b7b3e9aad%3A0xa4ba6d1c9e3e2b5!2sRio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1647896543210" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <p style="margin-top: 16px; font-size: 0.75rem; opacity: 0.6;">
+                © 2026 · Atendimento domiciliar · Rio de Janeiro
+            </p>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- ========== RODAPÉ ========== -->
-<footer>
-    <div class="container">
-        <p style="margin-bottom: 6px; font-family: 'Playfair Display', serif; font-size: 1.1rem;">
-            Lorrayne Margot · Fisioterapeuta
-        </p>
-        <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 12px;">Cuidado que transforma vidas.</p>
-        <div class="social">
-            <a href="#" target="_blank">Instagram</a>
-            <a href="#" target="_blank">LinkedIn</a>
-        </div>
-        <p style="margin-top: 16px; font-size: 0.75rem; opacity: 0.6;">
-            © 2026 · Atendimento domiciliar · Rio de Janeiro
-        </p>
-    </div>
-</footer>
+    <!-- ========== BOTÃO FLUTUANTE DO WHATSAPP ========== -->
+    <a href="https://wa.me/5521999999999?text=Olá,%20Lorrayne!%20Gostaria%20de%20agendar%20um%20atendimento%20ou%20tirar%20uma%20dúvida%20sobre%20a%20fisioterapia.%20Pode%20me%20ajudar?"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="Falar com Lorrayne no WhatsApp">
+    <span class="whatsapp-float-icon">💬</span>
+    <span class="whatsapp-float-text">Fale comigo</span>
+</a>
 
 </body>
 </html>
