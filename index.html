@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         /* ============================================================
-                   RESET E VARIÁVEIS
+                   RESET E VARIÁVEIS (Paleta Lorrayne)
                    ============================================================ */
         * {
             margin: 0;
@@ -94,7 +94,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
             border: 2px solid var(--verde-sabio);
         }
-
         .contato-info .btn-primario:hover {
             background: var(--verde-claro);
             color: var(--verde-escuro);
@@ -124,7 +123,6 @@
             color: var(--lilas-escuro);
             font-style: italic;
         }
-
         .subtitulo-secao {
             text-align: center;
             max-width: 600px;
@@ -660,29 +658,33 @@
             </div>
             <div class="hero-foto">
                 <div class="moldura-foto">
-                    <!-- ADICIONE A FOTO DA LORRAYNE AQUI -->
-                    <img src="https://scontent.cdninstagram.com/v/t51.2885-19/277820475_727086758673858_6571068879150878207_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=104&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=CBT6Nvq-bK4Q7kNvwHUTGx9&_nc_oc=AdrnbdsdOveMzzNfN_mlPUuT61iBeBmnUtD230227YBZ9GzgqiHdJgAZOC0yHnXZEx4&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b6a8&oh=00_AQHGypuaEp-yPTSmzXL5blL7Jce-3wy1FGyAmexK8fgCbA&oe=6A892699" />
+                    <img src="https://scontent.cdninstagram.com/v/t51.2885-19/277820475_727086758673858_6571068879150878207_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=104&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=CBT6Nvq-bK4Q7kNvwHUTGx9&_nc_oc=AdrnbdsdOveMzzNfN_mlPUuT61iBeBmnUtD230227YBZ9GzgqiHdJgAZOC0yHnXZEx4&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b6a8&oh=00_AQHGypuaEp-yPTSmzXL5blL7Jce-3wy1FGyAmexK8fgCbA&oe=6A892699" alt="Foto da Fisioterapeuta Lorrayne Margot" />
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    SOBRE MIM
+    SOBRE MIM (atualizado com o texto da Lorrayne)
     ============================================================ -->
     <section id="sobre" style="background: var(--branco);">
         <div class="container">
             <h2 class="titulo-secao">Sobre <span>mim</span></h2>
             <div class="sobre-grid">
-                <!-- ADICIONE UMA FOTO DA LORRAYNE EM ATENDIMENTO AQUI -->
                 <img src="https://via.placeholder.com/400x300/6B8F71/FFFFFF?text=Atendimento+humanizado" alt="Lorrayne em atendimento" />
                 <div>
-                    <h3>Transformar vidas com <span>toque e ciência</span></h3>
+                    <h3>Quem é a <span>Lorrayne</span></h3>
                     <p>
-                        Sou fisioterapeuta apaixonada pelo que faço. Minha trajetória começou com a vontade de cuidar de pessoas de forma integral, combinando técnicas manuais com um olhar atento às necessidades de cada paciente.
+                        Sou fisioterapeuta, tenho 31 anos e sou formada há 7 anos. Amo profundamente o que faço e tenho muito orgulho da profissão que escolhi.
                     </p>
                     <p>
-                        Especializei-me em <strong>Terapia Manual, Taping e Reabilitação Ortopédica</strong>, com foco especial no cuidado com mulheres no pré e pós-parto. Acredito que o corpo fala, e meu trabalho é ouvi-lo e guiá-lo para o equilíbrio.
+                        Além da fisioterapia, sou mãe de uma menina que é meu maior amor. ❤️
+                    </p>
+                    <p>
+                        Sou apaixonada por animais, adoro dançar e não dispenso uma boa praia. 🌊☀️
+                    </p>
+                    <p>
+                        Aqui, além de compartilhar meu trabalho, quero que você conheça um pouquinho de quem eu sou e da paixão que coloco em tudo o que faço.
                     </p>
                     <ul class="lista-formacao">
                         <li>Graduação em Fisioterapia – UFRJ</li>
@@ -902,8 +904,6 @@
                 <a href="#" target="_blank">LinkedIn</a>
                 <a href="#" target="_blank">YouTube</a>
             </div>
-
-            <!-- ÁREA "MADE BY LEONE DICAMP" -->
             <div class="assinatura">
                 Made by <span>Leone DiCamp</span>
             </div>
@@ -930,7 +930,6 @@
             const resposta = pergunta.nextElementSibling;
             const isOpen = resposta.classList.contains('aberto');
 
-            // Fecha todos os outros
             document.querySelectorAll('.faq-item .resposta').forEach(el => {
                 el.classList.remove('aberto');
             });
